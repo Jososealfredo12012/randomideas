@@ -1,7 +1,10 @@
+import IdeasApi from "../services/ideasAPI";
+
 class IdeaList {
   constructor() {
     this._ideaListEl = document.querySelector("#idea-list");
     this._ideas = [];
+    this.getIdeas();
 
     this._validTags = new Set();
     this._validTags.add("technology");
@@ -10,6 +13,16 @@ class IdeaList {
     this._validTags.add("education");
     this._validTags.add("health");
     this._validTags.add("inventions");
+  }
+
+  async getIdeas() {
+    try {
+      const res = await IdeasApi.getIdeas();
+      this._ideas = res.data.data;
+      console.log(this._ideas);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   getTagClass(tag = String()) {
