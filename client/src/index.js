@@ -4,8 +4,7 @@ import "./css/style.css";
 import IdeaForm from "./components/IdeaForm.js";
 import IdeaList from "./components/idealist.js";
 
-const modal = new Modal();
+new Modal();
 const ideaForm = new IdeaForm();
 ideaForm.render();
-const ideaList = new IdeaList();
-ideaList.render();
+new IdeaList();
