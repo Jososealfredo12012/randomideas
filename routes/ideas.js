@@ -37,8 +37,8 @@ router.post("/", async (req, res) => {
     const savedIdea = await idea.save();
     res.send({ success: true, data: savedIdea });
   } catch (error) {
-    console.log(error);
-    res.status.json({ success: false, error: "Something went wrong" });
+    // console.log(error);
+    res.status(404).json({ success: false, error: "Something went wrong" });
   }
 });
 
